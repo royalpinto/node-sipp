@@ -4,10 +4,43 @@
   "version": "0.0.1",
   "description": "manage/execute SIPp scenarios using node",
   "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/royalpinto/node-sipp.git"
   },
   "author": "Lohith Royal Pinto <royalpinto@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "extends": "google",
+    "rules": {
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "no-multiple-empty-lines": [
+        2,
+        {
+          "max": 2,
+          "maxEOF": 1
+        }
+      ],
+      "indent": [
+        2,
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ]
+    }
+  }
 }
