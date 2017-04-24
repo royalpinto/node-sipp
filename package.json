@@ -1,0 +1,13 @@
+{
+  "private": "true",
+  "name": "sipp",
+  "version": "0.0.1",
+  "description": "manage/execute SIPp scenarios using node",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royalpinto/node-sipp.git"
+  },
+  "author": "Lohith Royal Pinto <royalpinto@gmail.com>",
+  "license": "ISC"
+}
