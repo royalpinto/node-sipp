@@ -1,0 +1,50 @@
+<send retrans="500">
+  <![CDATA[
+
+    REGISTER sip:[remote_ip] SIP/2.0
+    Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+    From: <sip:{{ username }}@{{ password }}>;tag=[call_number]
+    To: <sip:{{ username }}@{{ password }}>
+    Call-ID: [call_id]
+    CSeq: [cseq] REGISTER
+    Contact: sip:{{ username }}@[local_ip]:[local_port]
+    Max-Forwards: 10
+    Expires: 120
+    User-Agent: SIPp/Win32
+    Content-Length: 0
+
+  ]]>
+</send>
+
+<!-- asterisk -->
+<recv response="100" optional="true">
+</recv>
+
+<recv response="401" auth="true">
+</recv>
+
+<send retrans="500">
+  <![CDATA[
+
+    REGISTER sip:[remote_ip] SIP/2.0
+    Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+    From: <sip:{{ username }}@{{ password }}>;tag=[call_number]
+    To: <sip:{{ username }}@{{ password }}>
+    Call-ID: [call_id]
+    CSeq: [cseq] REGISTER
+    Contact: sip:{{ username }}@[local_ip]:[local_port]
+    [authentication username={{ username }} password={{ password }}]
+    Max-Forwards: 10
+    Expires: 120
+    User-Agent: SIPp/Win32
+    Content-Length: 0
+
+  ]]>
+</send>
+
+<!-- asterisk -->
+<recv response="100" optional="true">
+</recv>
+
+<recv response="200">
+</recv>
